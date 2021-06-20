@@ -3,9 +3,9 @@ import firebase from 'firebase/app';
 import Message from './Message';
 
 
-const Channel = ({ user = null, db = null}) => {
-    const {messages, setMessages} = useState([]);
-    const {newMessage, setNewMessage} = useState('');
+const Channel = ({ user = null, db = null }) => {
+    const [messages, setMessages] = useState([]);
+    const [newMessage, setNewMessage] = useState('');
 
     const { uid, displayName, photoURL } = user;
 
@@ -48,12 +48,11 @@ const Channel = ({ user = null, db = null}) => {
         }
 
     }
-
     return (
         <>
             <ul>
                 {messages?.map(message => {
-                    <li key={message.id}><Message {...message} /></li>
+                    return (<li key={message.id}><Message {...message} /></li>)
                 })}
             </ul>
             <form onSubmit={handleOnSubmit}>

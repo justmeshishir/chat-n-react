@@ -12,7 +12,7 @@ const Message = ({
             { photoURL ? (
                 <img src={photoURL} width={45} height={45} />
             ) : null }
-            {displayName ? <p>{displayName}</p> : null }
+            { displayName ? <p>{displayName}</p> : null }
             {createdAt?.seconds ? (
                 <span>
                     {formatRelative(new Date(createdAt.seconds * 1000), new Date())}
